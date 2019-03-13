@@ -2,6 +2,7 @@ var createError = require("http-errors");
 var express = require("express");
 var exphbs = require("express-handlebars");
 var sassMiddleware = require("node-sass-middleware");
+var browserify = require("browserify-middleware");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -27,6 +28,8 @@ app.use(
         debug: true
     })
 );
+
+app.get("/javascripts/bundle.js", browserify("./client/script.js"));
 
 app.use(logger("dev"));
 app.use(express.json());
