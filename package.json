@@ -19,6 +19,8 @@
         "node-sass-middleware": "^0.11.0"
     },
     "devDependencies": {
+        "browser-sync": "^2.26.3",
+        "connect-browser-sync": "^2.1.0",
         "nodemon": "^1.18.10"
     }
 }

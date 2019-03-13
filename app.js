@@ -31,6 +31,24 @@ app.use(
 
 app.get("/javascripts/bundle.js", browserify("./client/script.js"));
 
+if (app.get("env") == "development") {
+    var browserSync = require("browser-sync");
+    var config = {
+        files: [
+            "public/**/*.{js,css}",
+            "client/*.js",
+            "sass/**/*.scss",
+            "views/**/*.hbs"
+        ],
+        logLevel: "debug",
+        logSnippet: false,
+        reloadDelay: 3000,
+        reloadOnRestart: true
+    };
+    var bs = browserSync(config);
+    app.use(require("connect-browser-sync")(bs));
+}
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
