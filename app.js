@@ -1,6 +1,7 @@
 var createError = require("http-errors");
 var express = require("express");
 var exphbs = require("express-handlebars");
+var mongoose = require("mongoose");
 var sassMiddleware = require("node-sass-middleware");
 var browserify = require("browserify-middleware");
 var path = require("path");
@@ -48,6 +49,9 @@ if (app.get("env") == "development") {
     var bs = browserSync(config);
     app.use(require("connect-browser-sync")(bs));
 }
+
+var dbConnectionString = process.env.MONGODB_URI || "mongodb://localhost";
+mongoose.connect(dbConnectionString + "/todos");
 
 app.use(logger("dev"));
 app.use(express.json());
