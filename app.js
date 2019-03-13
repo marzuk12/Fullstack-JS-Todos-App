@@ -1,6 +1,7 @@
 var createError = require("http-errors");
 var express = require("express");
-var exphbs = require('express-handlebars');
+var exphbs = require("express-handlebars");
+var sassMiddleware = require("node-sass-middleware");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -16,8 +17,16 @@ var app = express();
 // app.set("views", path.join(__dirname, "views"));
 // app.set("view engine", "jade");
 
-app.engine('hbs', exphbs({extname: '.hbs', defaultLayout: 'layout'}));
-app.set('view engine', 'hbs');
+app.engine("hbs", exphbs({ extname: ".hbs", defaultLayout: "layout" }));
+app.set("view engine", "hbs");
+
+app.use(
+    sassMiddleware({
+        src: __dirname + "/sass",
+        dest: __dirname + "/public",
+        debug: true
+    })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
