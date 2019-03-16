@@ -1,9 +1,6 @@
 {{> add}}
 <ul>
     {{#each todos}}
-    <li class="{{#if this.done}}checked{{/if}}">
-        <input type="checkbox" {{#if this.done}}checked{{/if}}>
-        <span>{{this.text}}</span>
-    </li>
+    {{> todos this}}
     {{/each}}
 </ul>

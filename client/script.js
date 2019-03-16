@@ -1,4 +1,6 @@
 var $ = require("jquery");
+var todoTemplate = require("../views/partials/todos.hbs");
+
 $(function() {
     $(":button").on("click", addTodo);
     $(":text").on("keypress", function(e) {

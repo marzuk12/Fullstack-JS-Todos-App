@@ -13,6 +13,8 @@
         "debug": "~2.6.9",
         "express": "~4.16.0",
         "express-handlebars": "^3.0.2",
+        "handlebars": "^4.1.1",
+        "hbsfy": "^2.8.1",
         "http-errors": "~1.6.2",
         "jade": "~1.11.0",
         "jquery": "^3.3.1",

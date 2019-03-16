@@ -31,6 +31,10 @@ app.use(
     })
 );
 
+browserify.settings({
+    transform: ["hbsfy"]
+});
+
 app.get("/javascripts/bundle.js", browserify("./client/script.js"));
 
 if (app.get("env") == "development") {
