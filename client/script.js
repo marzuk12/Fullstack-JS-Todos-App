@@ -1,5 +1,5 @@
 var $ = require("jquery");
-var todoTemplate = require("../views/partials/todos.hbs");
+var todoTemplate = require("../views/partials/todo.hbs");
 
 $(function() {
     $(":button").on("click", addTodo);
@@ -29,10 +29,10 @@ var addTodo = function() {
         },
         dataType: "json",
         success: function(data) {
-            var todo = data.todo.text;
+            var todo = data.todo;
             console.log(todo);
-            var newLiHtml =
-                '<li><input type="checkbox"><span> ' + todo + "</span></li>";
+            var newLiHtml = todoTemplate(todo);
+            console.log(newLiHtml);
             $("form + ul").append(newLiHtml);
             $("#add-todo-text").val("");
         }
