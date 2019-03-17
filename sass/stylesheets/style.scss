@@ -5,6 +5,11 @@ body {
     font: 14px $font-stack;
     a {
         color: $primary-link-color;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
     }
     ul {
         list-style-type: none;
