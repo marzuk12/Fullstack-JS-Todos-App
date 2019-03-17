@@ -1,4 +1,5 @@
-<li id="{{this._id}}" class="{{#if this.done}}checked{{/if}}">
+<li id="{{this._id}}" class="list-group-item {{#if this.done}}checked{{/if}}">
     <input type="checkbox" {{#if this.done}}checked{{/if}}>
-    <span contenteditable="true">{{this.text}}</span><a>x</a>
+    <span contenteditable="true">{{this.text}}</span>
+    <a class="pull-right"><small><i class="glyphicon glyphicon-trash"></i></small></a>
 </li>
